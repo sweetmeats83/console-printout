@@ -1,7 +1,8 @@
 # Console Printout
 
 Console Printout packages the animated console macro into a full Foundry VTT v13 module. Drop a printout tile onto any scene, edit the message inside a rich-text window, and control everything from typing cadence to glitch intensity and screen colors.
-
+---
+![Demo of Memories app](console-printout-demo.gif)
 ## Requirements
 
 - Foundry Virtual Tabletop core v13+
