@@ -1,0 +1,225 @@
+<fieldset class="console-printout-config cp-config">
+  <legend>Console Printout</legend>
+
+  <div class="form-group">
+    <label>Enable Console Printout</label>
+    <div class="form-fields">
+      <input type="checkbox" name="{{flagPath}}.enabled" {{checked data.enabled}} {{#unless editable}}disabled{{/unless}}>
+    </div>
+  </div>
+
+  <div class="form-group stacked">
+    <label>Printout Text</label>
+    {{editor data.text target=editorTarget button=true owner=owner editable=editable}}
+    <p class="notes">
+      Use the Foundry rich text controls to format your console message. Blank paragraphs add longer pauses.
+    </p>
+  </div>
+
+  <div class="form-group">
+    <button type="button" class="reset-button" data-action="reset-console-printout" {{#unless editable}}disabled{{/unless}}>
+      <i class="fas fa-undo"></i>
+      Reset to defaults
+    </button>
+  </div>
+
+  <fieldset class="cp-style">
+    <legend>Text Style</legend>
+    <div class="form-group">
+      <label>Font Family</label>
+      <div class="form-fields">
+        <input type="text" name="{{flagPath}}.style.fontFamily" value="{{data.style.fontFamily}}" {{#unless editable}}disabled{{/unless}}>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Font Size</label>
+      <div class="form-fields">
+        <input type="number" name="{{flagPath}}.style.fontSize" data-dtype="Number" min="8" step="1" value="{{data.style.fontSize}}" {{#unless editable}}disabled{{/unless}}>
+        <label class="unit">px</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Font Color</label>
+      <div class="form-fields">
+        <input type="color" name="{{flagPath}}.style.textColor" value="{{data.style.textColor}}" {{#unless editable}}disabled{{/unless}}>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Stroke Color</label>
+      <div class="form-fields">
+        <input type="color" name="{{flagPath}}.style.strokeColor" value="{{data.style.strokeColor}}" {{#unless editable}}disabled{{/unless}}>
+        <input type="number" name="{{flagPath}}.style.strokeThickness" data-dtype="Number" min="0" step="1" value="{{data.style.strokeThickness}}" {{#unless editable}}disabled{{/unless}}>
+        <label class="unit">px</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Line Height</label>
+      <div class="form-fields">
+        <input type="number" name="{{flagPath}}.style.lineHeight" data-dtype="Number" min="10" step="1" value="{{data.style.lineHeight}}" {{#unless editable}}disabled{{/unless}}>
+        <label class="unit">px</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Padding</label>
+      <div class="form-fields">
+        <input type="number" name="{{flagPath}}.style.padding" data-dtype="Number" min="0" step="1" value="{{data.style.padding}}" {{#unless editable}}disabled{{/unless}}>
+        <label class="unit">px</label>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset class="cp-effects">
+    <legend>Print Effects</legend>
+    <div class="form-group">
+      <label>Enable Visual Effects</label>
+      <div class="form-fields">
+        <input type="checkbox" name="{{flagPath}}.effects.enabled" {{checked data.effects.enabled}} {{#unless editable}}disabled{{/unless}}>
+      </div>
+      <p class="notes">
+        Turn off to disable flicker, glitches, jitter, and per-character sounds for this tile.
+      </p>
+    </div>
+    <div class="form-group">
+      <label>Base Character Delay</label>
+      <div class="form-fields">
+        <input type="number" name="{{flagPath}}.effects.charDelay" data-dtype="Number" min="5" max="400" step="1" value="{{data.effects.charDelay}}" {{#unless editable}}disabled{{/unless}}>
+        <label class="unit">ms</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Delay Jitter</label>
+      <div class="form-fields">
+        <input type="number" name="{{flagPath}}.effects.charDelayJitter" data-dtype="Number" min="0" max="200" step="1" value="{{data.effects.charDelayJitter}}" {{#unless editable}}disabled{{/unless}}>
+        <label class="unit">ms</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Glitch Chance</label>
+      <div class="form-fields">
+        <input type="number" name="{{flagPath}}.effects.glitchChance" data-dtype="Number" min="0" max="1" step="0.01" value="{{data.effects.glitchChance}}" {{#unless editable}}disabled{{/unless}}>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Glitch Frames</label>
+      <div class="form-fields">
+        <input type="number" name="{{flagPath}}.effects.glitchFrames" data-dtype="Number" min="0" max="12" step="1" value="{{data.effects.glitchFrames}}" {{#unless editable}}disabled{{/unless}}>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Cursor Character</label>
+      <div class="form-fields">
+        <input type="text" name="{{flagPath}}.effects.cursorChar" maxlength="3" value="{{data.effects.cursorChar}}" {{#unless editable}}disabled{{/unless}}>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Line Delay</label>
+      <div class="form-fields">
+        <input type="number" name="{{flagPath}}.effects.lineDelay" data-dtype="Number" min="0" max="15000" step="10" value="{{data.effects.lineDelay}}" {{#unless editable}}disabled{{/unless}}>
+        <label class="unit">ms</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Paragraph Delay</label>
+      <div class="form-fields">
+        <input type="number" name="{{flagPath}}.effects.paragraphDelay" data-dtype="Number" min="0" max="20000" step="10" value="{{data.effects.paragraphDelay}}" {{#unless editable}}disabled{{/unless}}>
+        <label class="unit">ms</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Flicker Amount</label>
+      <div class="form-fields">
+        <input type="number" name="{{flagPath}}.effects.flickerAmount" data-dtype="Number" min="0" max="0.5" step="0.01" value="{{data.effects.flickerAmount}}" {{#unless editable}}disabled{{/unless}}>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Jitter Pixels</label>
+      <div class="form-fields">
+        <input type="number" name="{{flagPath}}.effects.jitterPx" data-dtype="Number" min="0" max="6" step="0.1" value="{{data.effects.jitterPx}}" {{#unless editable}}disabled{{/unless}}>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Cursor Blink</label>
+      <div class="form-fields">
+        <input type="number" name="{{flagPath}}.effects.cursorBlinkMs" data-dtype="Number" min="80" max="3000" step="10" value="{{data.effects.cursorBlinkMs}}" {{#unless editable}}disabled{{/unless}}>
+        <label class="unit">ms</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Beep Source</label>
+      <div class="form-fields">
+        <input type="text" name="{{flagPath}}.effects.beepSrc" value="{{data.effects.beepSrc}}" {{#unless editable}}disabled{{/unless}}>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Beep Volume</label>
+      <div class="form-fields">
+        <input type="number" name="{{flagPath}}.effects.beepVolume" data-dtype="Number" min="0" max="1" step="0.05" value="{{data.effects.beepVolume}}" {{#unless editable}}disabled{{/unless}}>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Panel Layout & Colors</legend>
+    <div class="form-group">
+      <label>Match Tile Position & Size</label>
+      <div class="form-fields">
+        <input type="checkbox" name="{{flagPath}}.panel.useTileRect" {{checked data.panel.useTileRect}} {{#unless editable}}disabled{{/unless}}>
+      </div>
+      <p class="notes">
+        When enabled, the overlay follows the tile's world position and dimensions. Disable to enter scene ratios manually.
+      </p>
+    </div>
+    <div class="form-group">
+      <label>Background Color</label>
+      <div class="form-fields">
+        <input type="color" name="{{flagPath}}.panel.bgColor" value="{{data.panel.bgColor}}" {{#unless editable}}disabled{{/unless}}>
+        <input type="number" name="{{flagPath}}.panel.bgAlpha" data-dtype="Number" min="0" max="1" step="0.05" value="{{data.panel.bgAlpha}}" {{#unless editable}}disabled{{/unless}}>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Outline Color</label>
+      <div class="form-fields">
+        <input type="color" name="{{flagPath}}.panel.borderColor" value="{{data.panel.borderColor}}" {{#unless editable}}disabled{{/unless}}>
+        <input type="number" name="{{flagPath}}.panel.borderAlpha" data-dtype="Number" min="0" max="1" step="0.05" value="{{data.panel.borderAlpha}}" {{#unless editable}}disabled{{/unless}}>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Outline Width</label>
+      <div class="form-fields">
+        <input type="number" name="{{flagPath}}.panel.borderWidth" data-dtype="Number" min="0" step="1" value="{{data.panel.borderWidth}}" {{#unless editable}}disabled{{/unless}}>
+        <label class="unit">px</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Corner Radius</label>
+      <div class="form-fields">
+        <input type="number" name="{{flagPath}}.panel.cornerRadius" data-dtype="Number" min="0" step="1" value="{{data.panel.cornerRadius}}" {{#unless editable}}disabled{{/unless}}>
+        <label class="unit">px</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Panel Position (Scene Ratios)</label>
+      <div class="form-fields">
+        <input type="number" name="{{flagPath}}.panel.xRatio" data-dtype="Number" min="0" max="1" step="0.01" value="{{data.panel.xRatio}}" {{#if data.panel.useTileRect}}disabled{{else}}{{#unless editable}}disabled{{/unless}}{{/if}}>
+        <label class="unit">X</label>
+        <input type="number" name="{{flagPath}}.panel.yRatio" data-dtype="Number" min="0" max="1" step="0.01" value="{{data.panel.yRatio}}" {{#if data.panel.useTileRect}}disabled{{else}}{{#unless editable}}disabled{{/unless}}{{/if}}>
+        <label class="unit">Y</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Panel Size (Scene Ratios)</label>
+      <div class="form-fields">
+        <input type="number" name="{{flagPath}}.panel.widthRatio" data-dtype="Number" min="0.05" max="1" step="0.01" value="{{data.panel.widthRatio}}" {{#if data.panel.useTileRect}}disabled{{else}}{{#unless editable}}disabled{{/unless}}{{/if}}>
+        <label class="unit">Width</label>
+        <input type="number" name="{{flagPath}}.panel.heightRatio" data-dtype="Number" min="0.05" max="1" step="0.01" value="{{data.panel.heightRatio}}" {{#if data.panel.useTileRect}}disabled{{else}}{{#unless editable}}disabled{{/unless}}{{/if}}>
+        <label class="unit">Height</label>
+      </div>
+    </div>
+  </fieldset>
+</fieldset>
+
+
+
+
+
+

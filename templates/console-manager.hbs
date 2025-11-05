@@ -1,0 +1,161 @@
+﻿<form class="cp-manager">
+  <aside class="cp-manager__sidebar">
+    <div class="cp-sidebar-header">
+      <h2>Console Tiles</h2>
+      <button type="button" class="cp-button cp-button--primary" data-action="create">
+        <i class="fas fa-plus"></i>
+        New Tile
+      </button>
+    </div>
+    <ul class="cp-tile-list">
+      {{#each tiles}}
+      <li class="cp-tile {{#if isActive}}active{{/if}}">
+        <button type="button" class="cp-tile-select" data-action="select-tile" data-tile-id="{{id}}">
+          <span class="cp-tile-label">{{label}}</span>
+          {{#if enabled}}
+          <span class="cp-pill">On</span>
+          {{/if}}
+        </button>
+      </li>
+      {{/each}}
+    </ul>
+    {{#unless hasTiles}}
+    <p class="cp-empty">No console tiles in this scene. Create one to get started.</p>
+    {{/unless}}
+  </aside>
+
+  <main class="cp-manager__main">
+    {{#if selectedTile}}
+    <header class="cp-toolbar">
+      <h3>{{selectedTile.label}}</h3>
+      <div class="cp-toolbar__actions">
+        <button type="button" class="cp-button" data-action="focus" data-tile-id="{{selectedTile.id}}">
+          <i class="fas fa-crosshairs"></i>
+          Focus Tile
+        </button>
+        <button type="button" class="cp-button" data-action="open" data-tile-id="{{selectedTile.id}}">
+          <i class="fas fa-cog"></i>
+          Tile Sheet
+        </button>
+        <button type="button" class="cp-button" data-action="play" data-tile-id="{{selectedTile.id}}">
+          <i class="fas fa-terminal"></i>
+          Play Overlay
+        </button>
+      </div>
+    </header>
+
+    <section class="cp-section">
+      <label class="cp-checkbox">
+        <input type="checkbox" name="enabled" {{checked selectedTile.config.enabled}}>
+        <span>Enable Console Printout</span>
+      </label>
+    </section>
+
+    <section class="cp-section">
+      <label for="cp-text">Console Text</label>
+      <textarea id="cp-text" name="text" rows="12" spellcheck="true">{{selectedTile.textPlain}}</textarea>
+    </section>
+
+    <section class="cp-section">
+      <header class="cp-section__header">
+        <h3>Effect Settings</h3>
+      <div class="cp-preset-buttons">
+        {{#each effectPresets}}
+        <button type="button" class="cp-button cp-button--ghost" data-action="preset" data-preset="{{id}}">{{label}}</button>
+        {{/each}}
+      </div>
+    </header>
+
+    <label class="cp-checkbox">
+      <input type="checkbox" name="effects.enabled" {{checked selectedTile.config.effects.enabled}}>
+      <span>Enable Visual Effects</span>
+    </label>
+    <label class="cp-checkbox">
+      <input type="checkbox" name="effects.loop" data-live {{checked selectedTile.config.effects.loop}}>
+      <span>Loop Playback</span>
+    </label>
+
+    <div class="cp-effects-grid">
+      <label>
+        Character Delay (ms)
+        <input type="number" name="effects.charDelay" data-live value="{{selectedTile.config.effects.charDelay}}" min="5" max="400" step="1">
+      </label>
+      <label>
+        Delay Jitter (ms)
+        <input type="number" name="effects.charDelayJitter" data-live value="{{selectedTile.config.effects.charDelayJitter}}" min="0" max="200" step="1">
+      </label>
+      <label>
+        Glitch Chance
+        <input type="number" name="effects.glitchChance" data-live value="{{selectedTile.config.effects.glitchChance}}" min="0" max="1" step="0.01">
+      </label>
+      <label>
+        Glitch Frames
+        <input type="number" name="effects.glitchFrames" data-live value="{{selectedTile.config.effects.glitchFrames}}" min="0" max="12" step="1">
+      </label>
+      <label>
+        Cursor Blink (ms)
+        <input type="number" name="effects.cursorBlinkMs" data-live value="{{selectedTile.config.effects.cursorBlinkMs}}" min="80" max="3000" step="10">
+      </label>
+      <label>
+        Line Delay (ms)
+        <input type="number" name="effects.lineDelay" data-live value="{{selectedTile.config.effects.lineDelay}}" min="0" max="15000" step="10">
+      </label>
+      <label>
+        Paragraph Delay (ms)
+        <input type="number" name="effects.paragraphDelay" data-live value="{{selectedTile.config.effects.paragraphDelay}}" min="0" max="20000" step="10">
+      </label>
+      <label>
+        Flicker Amount
+        <input type="number" name="effects.flickerAmount" data-live value="{{selectedTile.config.effects.flickerAmount}}" min="0" max="0.5" step="0.01">
+      </label>
+      <label>
+        Jitter (px)
+        <input type="number" name="effects.jitterPx" data-live value="{{selectedTile.config.effects.jitterPx}}" min="0" max="6" step="0.1">
+      </label>
+      <label>
+        Cursor Character
+        <input type="text" name="effects.cursorChar" data-live maxlength="3" value="{{selectedTile.config.effects.cursorChar}}">
+      </label>
+      <label>
+        Beep Source
+        <input type="text" name="effects.beepSrc" data-live value="{{selectedTile.config.effects.beepSrc}}">
+      </label>
+      <label>
+        Beep Volume
+        <input type="number" name="effects.beepVolume" data-live value="{{selectedTile.config.effects.beepVolume}}" min="0" max="1" step="0.05">
+      </label>
+    </div>
+  </section>
+
+  <section class="cp-section">
+    <header class="cp-section__header">
+      <h3>Style</h3>
+    </header>
+    <label>
+      Font Preset
+      <select name="style.fontPreset" data-live>
+        {{#each fontPresets}}
+        <option value="{{id}}" {{#if selected}}selected{{/if}}>{{label}}</option>
+        {{/each}}
+        <option value="__custom__" {{#if customFontSelected}}selected{{/if}}>Custom</option>
+      </select>
+    </label>
+    <label>
+      Font Family
+      <input type="text" name="style.fontFamily" data-live value="{{selectedTile.fontFamily}}">
+    </label>
+  </section>
+
+  <footer class="cp-footer">
+    <button type="submit" class="cp-button cp-button--primary">
+      <i class="fas fa-save"></i>
+      Save Changes
+      </button>
+    </footer>
+    {{else}}
+    <div class="cp-empty-state">
+      <p>Select or create a console tile to adjust its text and effects.</p>
+    </div>
+    {{/if}}
+  </main>
+</form>

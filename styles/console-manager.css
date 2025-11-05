@@ -1,0 +1,214 @@
+﻿.cp-manager {
+  display: flex;
+  gap: 1rem;
+  height: 100%;
+}
+
+.cp-manager__sidebar {
+  flex: 0 0 220px;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--color-border, #666);
+  padding-right: 0.75rem;
+}
+
+.cp-sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.cp-tile-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.cp-tile {
+  margin-bottom: 0.25rem;
+}
+
+.cp-tile-select {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.4rem 0.5rem;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background: transparent;
+  color: inherit;
+}
+
+.cp-tile.active .cp-tile-select {
+  border-color: var(--color-border-highlight, #ff9800);
+  background: rgba(255, 152, 0, 0.15);
+}
+
+.cp-pill {
+  display: inline-block;
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+  background: var(--color-border-highlight, #ff9800);
+  color: #000;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+}
+
+.cp-empty {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--color-text-secondary, #bbb);
+}
+
+.cp-manager__main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.cp-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  border-bottom: 1px solid var(--color-border, #666);
+  padding-bottom: 0.5rem;
+}
+
+.cp-toolbar__actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.cp-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.cp-section textarea {
+  width: 100%;
+  min-height: 200px;
+  resize: vertical;
+}
+
+.cp-section__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cp-preset-buttons {
+  display: flex;
+  gap: 0.25rem;
+  flex-wrap: wrap;
+}
+
+.cp-effects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.5rem;
+}
+
+.cp-effects-grid label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.cp-checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cp-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--color-border, #666);
+}
+
+.cp-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.65rem;
+  border-radius: 4px;
+  border: 1px solid var(--color-border, #666);
+  background: rgba(255, 255, 255, 0.05);
+  color: inherit;
+  cursor: pointer;
+}
+
+.cp-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.cp-button--primary {
+  border-color: var(--color-border-highlight, #ff9800);
+  background: rgba(255, 152, 0, 0.2);
+  color: inherit;
+}
+
+.cp-button--ghost {
+  border-color: transparent;
+}
+
+.cp-empty-state {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-secondary, #bbb);
+}
+
+.effect-mode-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.effect-mode-block .effect-controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.5rem;
+}
+
+.effect-control {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.effect-hint {
+  margin: 0 0 0.35rem 0;
+  font-size: 0.85rem;
+  color: var(--color-text-secondary, #bbb);
+}
+
+.console-printout-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.6rem;
+  border-radius: 4px;
+  border: 1px solid var(--color-border, #666);
+  background: rgba(255, 255, 255, 0.07);
+  color: inherit;
+  cursor: pointer;
+}
+
+.console-printout-button i {
+  pointer-events: none;
+}
+
+.console-printout-button:hover {
+  background: rgba(255, 255, 255, 0.12);
+}

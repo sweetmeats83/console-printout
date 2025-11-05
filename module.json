@@ -1,0 +1,28 @@
+{
+  "id": "console-printout",
+  "type": "module",
+  "title": "Console Printout",
+  "description": "Create and control glitchy terminal text overlays on tiles. Includes a Manager window with live preview, sliders for effects, style and panel controls, and HUD/Scene Controls integration.",
+  "version": "1.6.1",
+  "authors": [
+    {
+      "name": "Nathan Blankenship"
+    }
+  ],
+  "compatibility": {
+    "minimum": "13",
+    "verified": "13"
+  },
+  "esmodules": [
+    "scripts/console-printout.js"
+  ],
+  "styles": [
+    "styles/console-manager.css"
+  ],
+  "packs": [],
+  "languages": [],
+  "socket": false,
+  "license": "MIT",
+  "readme": "README.md"
+}
+
