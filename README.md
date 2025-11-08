@@ -1,4 +1,5 @@
 # Console Printout
+This thing bairly works.
 
 Console Printout packages the animated console macro into a full Foundry VTT v13 module. Drop a printout tile onto any scene, edit the message inside a rich-text window, and control everything from typing cadence to glitch intensity and screen colors.
 ---
